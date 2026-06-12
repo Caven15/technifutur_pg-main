@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class Stock(Base):
     __tablename__ = 'stock'
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     quantity: Mapped[int] = mapped_column()
     location: Mapped[str] = mapped_column()
     plant_id: Mapped[int] = mapped_column(ForeignKey('plant.id'))

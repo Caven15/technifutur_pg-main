@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 class Category(Base):
     __tablename__ = 'category'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column()
 
     plants: Mapped[list["Plant"]] = relationship(secondary=plant_category)

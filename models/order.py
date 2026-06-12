@@ -19,7 +19,7 @@ class Order(Base):
         CANCELED = 'CANCELED'
 
     __tablename__ = 'order'
-    id : Mapped[int] = mapped_column(primary_key=True)
+    id : Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     order_date: Mapped[date] = mapped_column()
     status : Mapped[Status] = mapped_column(SQLEnum(Status))
     customer_id : Mapped[int] = mapped_column(ForeignKey('customer.id'))

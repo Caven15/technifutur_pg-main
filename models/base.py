@@ -1,6 +1,6 @@
-from sqlalchemy.orm import MappedAsDataclass, DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase
 
-class Base(MappedAsDataclass, DeclarativeBase):
+class Base(DeclarativeBase):
     pass
 
 from sqlalchemy import create_engine
@@ -35,7 +35,8 @@ def get_db_session():
     try:
         yield session
         session.commit()
-    except Exception:
+    except Exception as e:
+        print(f"[Erreur] : {e}")
         session.rollback()
     finally:
         session.close()
